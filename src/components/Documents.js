@@ -41,17 +41,35 @@ const DocSlider = styled.div`
 
 const Documents = ({ userObj }) => {
   const sliderRef = useRef();
+  // const [tempDocs, setTempDocs] useState([]);
   const [docs, setDocs] = useState([]);
+  const [isDocEmpty, setIsDocEmpty] = useState(false);
   const fetchData = async () => {
-    const cert_e_ref = doc(db, "cert_enrollment", userObj.uid);
-    const cert_i_ref = doc(db, "cert_income", userObj.uid);
-    const cert_t_ref = doc(db, "cert_transcript", userObj.uid);
+    // const cert_e_ref = doc(db, "cert_enrollment", userObj.uid);
+    // const cert_i_ref = doc(db, "cert_income", userObj.uid);
+    // const cert_t_ref = doc(db, "cert_transcript", userObj.uid);
+    // const cert_r_ref = doc(db, "cert_recipient", userObj.uid);
+    // const cert_d_ref = doc(db, "cert_disabled", userObj.uid);
+    // const cert_s_ref = doc(db, "cert_singlep", userObj.uid);
+    // const cert_f_ref = doc(db, "cert_foreigner", userObj.uid);
 
-    const eSnap = await getDoc(cert_e_ref); // getDocs - doc.data() will not be "undefined"
-    const iSnap = await getDoc(cert_i_ref);
-    const tSnap = await getDoc(cert_t_ref);
-
-    setDocs([eSnap.data(), iSnap.data(), tSnap.data()]);
+    // const eSnap = await getDoc(cert_e_ref); // getDocs - doc.data() will not be "undefined"
+    // const iSnap = await getDoc(cert_i_ref);
+    // const tSnap = await getDoc(cert_t_ref);
+    // const rSnap = await getDoc(cert_r_ref);
+    // const dSnap = await getDoc(cert_d_ref);
+    // const sSnap = await getDoc(cert_s_ref);
+    // const fSnap = await getDoc(cert_f_ref);
+    console.log(userObj.uid);
+    const q = query(
+      collection(db, "collection"),
+      where("uploaderId", "==", userObj.uid)
+    );
+    const docSnap = await getDocs(q);
+    setDocs(docSnap.docs);
+    setIsDocEmpty(docSnap.empty);
+    // setTempDocs([eSnap.data(), iSnap.data(), tSnap.data(),rSnap.data(),dSnap.data(),sSnap.data(),fSnap.data()])
+    // setDocs([eSnap.data(), iSnap.data(), tSnap.data()]);
   };
   useEffect(() => {
     fetchData();
@@ -67,9 +85,15 @@ const Documents = ({ userObj }) => {
         </AddDocIcon>
       </SliderTop>
       <DocSlider ref={sliderRef}>
-        {docs.map((doc, index) => {
-          return <Card docObj={doc} key={doc} index={index} />;
-        })}
+        {isDocEmpty ? (
+          <Card isEmpty={isDocEmpty} />
+        ) : (
+          <>
+            {docs.map((doc, index) => {
+              return <Card docObj={doc} key={doc.id} index={index} />;
+            })}
+          </>
+        )}
       </DocSlider>
     </>
   );

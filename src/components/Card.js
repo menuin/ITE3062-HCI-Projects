@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 import { HiOutlineDocumentAdd } from "react-icons/hi";
@@ -41,39 +41,39 @@ const Notification = styled.div`
   font-family: "Noto Sans KR", sans-serif;
   color: #d7d7d7;
 `;
-const Card = ({ docObj, index }) => {
-  const renderCardName = (index) => {
-    switch (index) {
-      case 0:
-        return "재학증명서";
-      case 1:
-        return "학자금 지원구간 통지서";
-      case 2:
-        return "성적증명서";
-      default:
-        return "서류";
-    }
-  };
+const Card = ({ docObj, isEmpty, index }) => {
+  // const renderCardName = (index) => {
+  //   switch (index) {
+  //     case 0:
+  //       return "재학증명서";
+  //     case 1:
+  //       return "학자금 지원구간 통지서";
+  //     case 2:
+  //       return "성적증명서";
+  //     default:
+  //       return "서류";
+  //   }
+  // };
   return (
     <CardContainer>
       <CardHead>
         <NameContainer>
           <DocName>서류</DocName>
-          <CardName>{renderCardName(index)}</CardName>
+          <CardName>{docObj.data().title}</CardName>
         </NameContainer>
         <EditContainer></EditContainer>
       </CardHead>
-      {docObj ? (
-        <></>
-      ) : (
+      {isEmpty ? (
         <NotUploadedDiv>
           <IconContainer>
             <Link to="upload" style={{ color: "#d7d7d7" }}>
               <HiOutlineDocumentAdd size={70} />
             </Link>
           </IconContainer>
-          <Notification>서류를 등록해주세요</Notification>
+          <Notification>등록된 서류가 없어요</Notification>
         </NotUploadedDiv>
+      ) : (
+        <></>
       )}
     </CardContainer>
   );
