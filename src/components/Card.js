@@ -124,7 +124,9 @@ const Card = ({ docObj, index }) => {
               <AiOutlineEye size={30} />
             </DocAction> */}
           <DocAction>
-            <AiOutlineEdit size={35} />
+            <Link to={`update/${docObj.id}`}>
+              <AiOutlineEdit size={35} />
+            </Link>
           </DocAction>
         </DocActionDiv>
         <UpdatedDiv>{docObj.data().updated}에 업데이트됨</UpdatedDiv>

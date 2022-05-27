@@ -50,7 +50,6 @@ const Documents = ({ userObj }) => {
   const [isDocEmpty, setIsDocEmpty] = useState(false);
   const fetchData = async () => {
     // const cert_e_ref = doc(db, "cert_enrollment", userObj.uid);
-
     // const eSnap = await getDoc(cert_e_ref); // getDocs - doc.data() will not be "undefined"
 
     console.log(userObj.uid);
@@ -60,7 +59,6 @@ const Documents = ({ userObj }) => {
     );
     const docSnap = await getDocs(q);
     setDocs(docSnap.docs);
-    console.log(docs);
     setIsDocEmpty(docSnap.empty);
     // setTempDocs([eSnap.data(), iSnap.data(), tSnap.data(),rSnap.data(),dSnap.data(),sSnap.data(),fSnap.data()])
     // setDocs([eSnap.data(), iSnap.data(), tSnap.data()]);

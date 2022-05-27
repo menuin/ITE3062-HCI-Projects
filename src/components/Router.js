@@ -4,6 +4,7 @@ import Auth from "../routes/Auth";
 import Main from "../routes/Main";
 import Home from "../routes/Home";
 import Upload from "../routes/Upload";
+import Update from "../routes/Update";
 
 const Router = ({ isLoggedIn, userObj }) => {
   return (
@@ -22,6 +23,12 @@ const Router = ({ isLoggedIn, userObj }) => {
               exact
               path="/upload"
               element={<Upload userObj={userObj} />}
+            />
+            <Route
+              name="update"
+              exact
+              path="/update/:docid"
+              element={<Update userObj={userObj} />}
             />
           </>
         ) : (
