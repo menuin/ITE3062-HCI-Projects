@@ -8,6 +8,7 @@ import { AiOutlineLogout } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 import Documents from "../components/Documents";
 import Banner from "../components/Banner";
+import Board from "./Board";
 
 const Topbar = styled.div`
   width: 100%;
@@ -84,12 +85,11 @@ const Home = ({ userObj }) => {
       </Topbar>
       {isHome ? (
         <>
-        <Banner />
+          <Banner />
           <Documents userObj={userObj} />
-          
         </>
       ) : (
-        <>장학금 공고 페이지</>
+        <Board />
       )}
     </>
   );

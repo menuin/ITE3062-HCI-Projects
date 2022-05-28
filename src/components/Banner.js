@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { RiExternalLinkLine } from "react-icons/ri";
+import { IoIosArrowForward } from "react-icons/io";
 
 const BannerBg = styled.div`
   width: 100%;
@@ -22,7 +22,7 @@ const BannerIcon = styled.div`
   color: #444444;
   display: flex;
   align-items: center;
-  margin-right: 20px;
+  margin-right: 10px;
 `;
 const BannerImg = styled.img`
   width: 100%;
@@ -46,7 +46,7 @@ const Banner = () => {
             국가장학금 신청하러 가기
           </BannerDescription>
           <BannerIcon>
-            <RiExternalLinkLine size={25} />
+            <IoIosArrowForward size={25} />
           </BannerIcon>
         </BannerTop>
         {/* <BannerImg

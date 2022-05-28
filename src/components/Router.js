@@ -5,6 +5,8 @@ import Main from "../routes/Main";
 import Home from "../routes/Home";
 import Upload from "../routes/Upload";
 import Update from "../routes/Update";
+import UserInfo1 from "../routes/UserInfo1";
+import TypeformRouter from "../routes/TypeformRouter";
 
 const Router = ({ isLoggedIn, userObj }) => {
   return (
@@ -29,6 +31,12 @@ const Router = ({ isLoggedIn, userObj }) => {
               exact
               path="/update/:docid"
               element={<Update userObj={userObj} />}
+            />
+            <Route
+              name="submitUserInfo"
+              exact
+              path="/input"
+              element={<UserInfo1 userObj={userObj} />}
             />
           </>
         ) : (
