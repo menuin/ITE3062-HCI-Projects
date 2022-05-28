@@ -48,7 +48,7 @@ const Notification = styled.div`
   color: #d7d7d7;
 `;
 const CardBottom = styled.div`
-  margin-top: 140px;
+  margin-top: 150px;
 `;
 const DocActionDiv = styled.div`
   margin-right: 25px;
@@ -70,7 +70,7 @@ const UpdatedDiv = styled.div`
 
 const Card = ({ docObj, index }) => {
   const [isDocClassified, setIsDocClassified] = useState(false);
-
+  let updatedDate = new Date(docObj.data().updated);
   const specialDocList = [
     "cert_recipient",
     "cert_sp",
@@ -129,7 +129,10 @@ const Card = ({ docObj, index }) => {
             </Link>
           </DocAction>
         </DocActionDiv>
-        <UpdatedDiv>{docObj.data().updated}에 업데이트됨</UpdatedDiv>
+        <UpdatedDiv>
+          업데이트 : {updatedDate.getFullYear()}년 {updatedDate.getMonth() + 1}
+          월 {updatedDate.getDate()}일
+        </UpdatedDiv>
       </CardBottom>
     </CardContainer>
   );
