@@ -43,7 +43,9 @@ const DocSlider = styled.div`
     display: none;
   }
 `;
-
+const StyledLink = styled(Link)`
+  color: #444444;
+`;
 const Documents = ({ userObj }) => {
   const sliderRef = useRef();
   const [docs, setDocs] = useState([]);
@@ -74,9 +76,9 @@ const Documents = ({ userObj }) => {
 
         <AddDocIcon>
           추가 &nbsp;
-          <Link to="upload">
+          <StyledLink to="upload">
             <IoIosAddCircleOutline size={30} />
-          </Link>
+          </StyledLink>
         </AddDocIcon>
       </SliderTop>
       <DocSlider ref={sliderRef}>

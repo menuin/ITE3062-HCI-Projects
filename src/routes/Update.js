@@ -9,6 +9,7 @@ import {
   getDoc,
   query,
   setDoc,
+  updateDoc,
   where,
 } from "firebase/firestore";
 import { db, storage } from "../firebase";
@@ -80,7 +81,7 @@ const DeleteBtn = styled(UpdateBtn)`
 const Update = ({ userObj }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const docId = useParams().docid;
+  const docId = useParams().docid; // id of updated document
   const [attachment, setAttachment] = useState("");
 
   const fetchAttachment = async () => {
@@ -123,7 +124,10 @@ const Update = ({ userObj }) => {
     }
     DeleteAttachment();
     // update attachment
-    // await setDoc(collection(db, "collection"), {});
+    await updateDoc(doc(db, "collection", docId), {
+      attachmentURL: attachment,
+      updated: Date.now(),
+    });
 
     navigate(-1);
   };

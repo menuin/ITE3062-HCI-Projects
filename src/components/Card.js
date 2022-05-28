@@ -67,6 +67,9 @@ const UpdatedDiv = styled.div`
   /* margin-top: 190px; */
   margin-right: 20px;
 `;
+const StyledLink = styled(Link)`
+  color: #444444;
+`;
 
 const Card = ({ docObj, index }) => {
   const [isDocClassified, setIsDocClassified] = useState(false);
@@ -109,7 +112,7 @@ const Card = ({ docObj, index }) => {
     <CardContainer isClassified={isDocClassified}>
       <CardHead>
         <NameContainer>
-          <DocName>장학금</DocName>
+          <DocName>서류</DocName>
           <CardName>{renderDocName(docObj.data().docType)}</CardName>
         </NameContainer>
         <EditContainer></EditContainer>
@@ -124,9 +127,9 @@ const Card = ({ docObj, index }) => {
               <AiOutlineEye size={30} />
             </DocAction> */}
           <DocAction>
-            <Link to={`update/${docObj.id}`}>
+            <StyledLink to={`update/${docObj.id}`}>
               <AiOutlineEdit size={35} />
-            </Link>
+            </StyledLink>
           </DocAction>
         </DocActionDiv>
         <UpdatedDiv>
