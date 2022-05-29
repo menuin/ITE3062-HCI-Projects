@@ -59,9 +59,9 @@ const TypeSelect = () => {
         );
       })}
       {userTypes.map((userType, index) => {
-        console.log(selectedType.includes(userType));
+        // console.log(selectedType.includes(userType));
         return (
-          <UserType array={selectedType} userType={userType} for={userType}>
+          <UserType array={initArray} userType={userType} for={userType}>
             {userType}
           </UserType>
         );

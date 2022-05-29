@@ -1,8 +1,15 @@
+import { addDoc, collection } from "firebase/firestore";
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import {
+  Navigate,
+  unstable_HistoryRouter,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import styled from "styled-components";
 import SectionSelect from "../components/SectionSelect";
 import TypeSelect from "../components/TypeSelect";
+import { db } from "../firebase";
 
 const FullContainer = styled.div`
   width: 80%;
@@ -67,7 +74,8 @@ const UserInfo1 = ({ userObj }) => {
   const [crntPage, setCrntPage] = useState(1);
   const [userSection, setUserSection] = useState();
   let userLocation = [];
-  let userState = [];
+  let userType = [];
+  const navigate = useNavigate();
 
   const renderQuestion = () => {
     switch (crntPage) {
@@ -115,6 +123,19 @@ const UserInfo1 = ({ userObj }) => {
   const onPage2Click = () => {
     setCrntPage(3);
   };
+  const onPage3Click = async () => {
+    // update sooon!
+    userType = ["차상위계층"];
+    // user 정보 올리기
+    const infoObj = {
+      userId: userObj.uid,
+      userLocation,
+      userSection,
+      userType,
+    };
+    await addDoc(collection(db, "user"), infoObj);
+    navigate("/", { isInfoUpdate: true });
+  };
   const onNextClick = () => {
     switch (crntPage) {
       case 1:
@@ -122,6 +143,9 @@ const UserInfo1 = ({ userObj }) => {
         return;
       case 2:
         onPage2Click();
+        return;
+      case 3:
+        onPage3Click();
         return;
       default:
     }

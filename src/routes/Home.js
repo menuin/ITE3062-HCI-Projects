@@ -1,7 +1,7 @@
 import { signOut } from "firebase/auth";
 import { collection, doc, onSnapshot, query, where } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { auth, db } from "../firebase";
 import { AiOutlineLogout } from "react-icons/ai";
