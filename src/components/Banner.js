@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { IoIosArrowForward } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const BannerBg = styled.div`
   width: 100%;
@@ -36,17 +37,35 @@ const BannerDescription = styled.div`
   font-size: 18px;
   color: #444444;
 `;
-const Banner = () => {
+const StyledLink = styled(Link)`
+  color: #444444;
+  text-decoration: none;
+`;
+const Banner = ({ isHome }) => {
   return (
     <BannerBg>
       <BannerContainer>
         <BannerTop>
           <BannerDescription>
-            ⭐ 2022-2학기 <br />
-            국가장학금 신청하러 가기
+            {isHome ? (
+              <>
+                ⭐ 2022-2학기 <br />
+                국가장학금 신청하러 가기
+              </>
+            ) : (
+              <>
+                소득분위 정보를 입력하면 <br />딱 맞는 장학금 공고를 알려드려요
+              </>
+            )}
           </BannerDescription>
           <BannerIcon>
-            <IoIosArrowForward size={25} />
+            {isHome ? (
+              <IoIosArrowForward size={25} />
+            ) : (
+              <StyledLink to="input">
+                <IoIosArrowForward size={25} />
+              </StyledLink>
+            )}
           </BannerIcon>
         </BannerTop>
         {/* <BannerImg

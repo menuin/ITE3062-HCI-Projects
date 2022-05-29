@@ -9,6 +9,7 @@ import { CgProfile } from "react-icons/cg";
 import Documents from "../components/Documents";
 import Banner from "../components/Banner";
 import Board from "./Board";
+import Applications from "../components/Applications";
 
 const Topbar = styled.div`
   width: 100%;
@@ -85,8 +86,9 @@ const Home = ({ userObj }) => {
       </Topbar>
       {isHome ? (
         <>
-          <Banner />
+          <Banner isHome={true} />
           <Documents userObj={userObj} />
+          <Applications />
         </>
       ) : (
         <Board />

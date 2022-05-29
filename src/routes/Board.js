@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Banner from "../components/Banner";
+import styled from "styled-components";
 
 const Board = () => {
   return (
     <>
-      <Link to="input">userinfo</Link>장학금공고페이지
+      <Banner isHome={false} />
+      장학금공고페이지
     </>
   );
 };
