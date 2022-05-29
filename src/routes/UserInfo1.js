@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import SectionSelect from "../components/SectionSelect";
+import TypeSelect from "../components/TypeSelect";
 
 const FullContainer = styled.div`
   width: 80%;
@@ -28,7 +29,8 @@ const Description = styled.div`
   text-align: center;
 `;
 const FormContainer = styled.div`
-  margin-top: 250px;
+  margin-top: 180px;
+  margin-bottom: 50px;
   text-align: center;
 `;
 const SelectBox = styled.select`
@@ -48,7 +50,9 @@ const SelectBox = styled.select`
   font-family: "Noto Sans KR", sans-serif;
 `;
 const NextBtnContainer = styled.div`
-  margin-top: 30px;
+  /* margin-top: 30px; */
+  /* position: fixed; */
+  /* width: 330px; */
   height: 50px;
   width: 100%;
   background-color: #f7d22c;
@@ -99,7 +103,7 @@ const UserInfo1 = ({ userObj }) => {
       case 2:
         return <SectionSelect setUserSection={setUserSection} />;
       case 3:
-        return;
+        return <TypeSelect />;
       default:
         return "no form here";
     }
@@ -129,10 +133,8 @@ const UserInfo1 = ({ userObj }) => {
       {crntPage == 2 && (
         <Description>*기초생활수급자(0분위) 차상위계층(1분위)</Description>
       )}
-      <FormContainer>
-        {renderForm()}
-        <NextBtnContainer onClick={onNextClick}>다음</NextBtnContainer>
-      </FormContainer>
+      <FormContainer>{renderForm()}</FormContainer>
+      <NextBtnContainer onClick={onNextClick}>다음</NextBtnContainer>
     </FullContainer>
   );
 };
