@@ -8,6 +8,7 @@ import {
   AiOutlineEye,
   AiOutlineEdit,
 } from "react-icons/ai";
+import { FiEdit2 } from "react-icons/fi";
 
 const CardContainer = styled.div`
   width: 75%;
@@ -128,7 +129,7 @@ const Card = ({ docObj, index }) => {
             </DocAction> */}
           <DocAction>
             <StyledLink to={`update/${docObj.id}`}>
-              <AiOutlineEdit size={35} />
+              <FiEdit2 size={28} />
             </StyledLink>
           </DocAction>
         </DocActionDiv>

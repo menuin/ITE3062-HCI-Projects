@@ -6,7 +6,6 @@ import Home from "../routes/Home";
 import Upload from "../routes/Upload";
 import Update from "../routes/Update";
 import UserInfo1 from "../routes/UserInfo1";
-import TypeformRouter from "../routes/TypeformRouter";
 
 const Router = ({ isLoggedIn, userObj }) => {
   return (

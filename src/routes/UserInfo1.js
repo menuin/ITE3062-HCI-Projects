@@ -20,6 +20,13 @@ const Question = styled.div`
   font-size: 20px;
   text-align: center;
 `;
+const Description = styled.div`
+  margin-top: 10px;
+  font-size: 14px;
+  color: #a8a8a8;
+  width: 100%;
+  text-align: center;
+`;
 const FormContainer = styled.div`
   margin-top: 250px;
   text-align: center;
@@ -54,8 +61,8 @@ const NextBtnContainer = styled.div`
 
 const UserInfo1 = ({ userObj }) => {
   const [crntPage, setCrntPage] = useState(1);
+  const [userSection, setUserSection] = useState();
   let userLocation = [];
-  let userIncome;
   let userState = [];
 
   const renderQuestion = () => {
@@ -70,6 +77,8 @@ const UserInfo1 = ({ userObj }) => {
             선택해주세요
           </>
         );
+      case 3:
+        return "해당되는 유형을 모두 선택해주세요";
       default:
         return "you've came to wrong path";
     }
@@ -81,28 +90,14 @@ const UserInfo1 = ({ userObj }) => {
           <>
             <SelectBox>
               <option selected>서울특별시</option>
-              <option>부산광역시</option>
-              <option>대구광역시</option>
-              <option>인천광역시</option>
             </SelectBox>
             <SelectBox>
               <option selected>강동구</option>
-              <option>종로구</option>
-              <option>중구</option>
-              <option>용산구</option>
-              <option>성동구</option>
-              <option>광진구</option>
-              <option>동대문구</option>
-              <option>중랑구</option>
-              <option>성북구</option>
-              <option>송파구</option>
-              <option>강남구</option>
             </SelectBox>
           </>
         );
       case 2:
-        // return <SectionSelect />;
-        return;
+        return <SectionSelect setUserSection={setUserSection} />;
       case 3:
         return;
       default:
@@ -113,7 +108,9 @@ const UserInfo1 = ({ userObj }) => {
     userLocation = ["서울", "강동구"];
     setCrntPage(2);
   };
-  const onPage2Click = () => {};
+  const onPage2Click = () => {
+    setCrntPage(3);
+  };
   const onNextClick = () => {
     switch (crntPage) {
       case 1:
@@ -129,6 +126,9 @@ const UserInfo1 = ({ userObj }) => {
     <FullContainer>
       <ProgressContainer>{crntPage}/3</ProgressContainer>
       <Question>{renderQuestion()}</Question>
+      {crntPage == 2 && (
+        <Description>*기초생활수급자(0분위) 차상위계층(1분위)</Description>
+      )}
       <FormContainer>
         {renderForm()}
         <NextBtnContainer onClick={onNextClick}>다음</NextBtnContainer>
