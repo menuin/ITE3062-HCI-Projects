@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const BannerBg = styled.div`
   width: 100%;
-  background-color: #f4f4f4;
+  background-color: #fff8ee; // #f4f4f4
 `;
 const BannerContainer = styled.div`
   width: 90%;
@@ -49,10 +49,11 @@ const Banner = ({ isHome }) => {
           <BannerDescription>
             {isHome ? (
               <>
-                ⭐ 2022-2학기 <br />
+                2022-2학기 <br />
                 국가장학금 신청하러 가기
               </>
             ) : (
+              // 이거 안씀!
               <>
                 소득분위 정보를 입력하면 <br />딱 맞는 장학금 공고를 알려드려요
               </>
@@ -68,10 +69,10 @@ const Banner = ({ isHome }) => {
             )}
           </BannerIcon>
         </BannerTop>
-        {/* <BannerImg
+        <BannerImg
           src="/images/국가장학금신청배너.jpg"
           alt="국가장학금 신청 배너"
-        /> */}
+        />
       </BannerContainer>
     </BannerBg>
   );

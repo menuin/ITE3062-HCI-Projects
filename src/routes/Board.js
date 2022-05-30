@@ -11,6 +11,7 @@ import {
   where,
 } from "firebase/firestore";
 import { db } from "../firebase";
+import SpecialAnnouncement from "../components/SpecialAnnouncement";
 
 const FilterContainer = styled.div`
   display: flex;
@@ -36,6 +37,7 @@ const Filter = styled.button`
 const AnnouncementContainer = styled.div`
   width: 90%;
   margin: 20px 5% 0px 5%;
+  height: 200px;
 `;
 const Announcemnet = styled.div`
   font-family: "Noto Sans KR", sans-serif;
@@ -47,7 +49,14 @@ const Announcemnet = styled.div`
   border-color: #ebebeb;
 `;
 const Board = () => {
-  const filterList = ["전체", "생활비", "중복수혜가능", "장비지원", "근로"];
+  const filterList = [
+    "전체",
+    "생활비",
+    "9-10분위",
+    "중복수혜가능",
+    "장비지원",
+    "근로",
+  ];
   const [crntFilter, setCrntFilter] = useState("전체");
   const [docs, setDocs] = useState([]);
   const [isDefault, setIsDefault] = useState(true);
@@ -102,7 +111,10 @@ const Board = () => {
           </>
         )}
       </AnnouncementContainer>
-      <Banner isHome={false} />
+      <AnnouncementContainer>
+        <SpecialAnnouncement />
+      </AnnouncementContainer>
+      {/* <Banner isHome={false} /> */}
     </>
   );
 };
