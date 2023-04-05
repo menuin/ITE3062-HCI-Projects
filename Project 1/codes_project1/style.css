@@ -1,0 +1,96 @@
+.wrapper {
+  display: flex;
+}
+.normal {
+  width: 48%;
+}
+.new {
+  width: 48%;
+}
+.filling {
+  width: 4%;
+}
+.description {
+  font-family: "Ubuntu", sans-serif;
+  padding: 20px 10px;
+}
+.menu {
+  text-align: right;
+  border-style: solid;
+  border-color: #d6d6d6;
+  border-radius: 4px 4px 0px 0px;
+  border-width: 1px;
+  padding: 15px 25px 10px;
+}
+.show-size {
+  float: left;
+}
+.sizeInput {
+  width: 80px;
+}
+.hide {
+  display: none;
+}
+.editor {
+  padding: 16px 24px;
+  border-color: #d6d6d6;
+  border-style: none solid none;
+  border-width: 1px;
+  overflow-y: auto;
+}
+
+.editor:focus {
+  outline: none;
+}
+
+.bottomMenu {
+  border-color: #d6d6d6;
+  border-style: none solid solid;
+  border-width: 1px;
+  border-radius: 0px 0px 4px 4px;
+  text-align: right;
+  padding: 15px;
+}
+.apply {
+}
+/* .wrapline:hover {
+  background-color: #e6f1fc;
+} */
+
+.wrapline {
+  display: table;
+  color: black;
+}
+
+.fontsize {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: red;
+}
+#selected {
+  position: relative;
+  overflow: auto;
+  border-style: dashed;
+  border-width: thin;
+  border-color: #3f96f3;
+  /* background-color: #abcbee; */
+}
+#resizable {
+  position: relative;
+  overflow: auto;
+  /* float: left; */
+  resize: horizontal;
+  border-style: dashed;
+  border-width: thin;
+  border-color: #3f96f3;
+}
+
+#resizableByScroll {
+  position: relative;
+  overflow: auto;
+  /* float: left; */
+  border-style: dashed;
+  border-width: thin;
+  border-color: #3f96f3;
+}

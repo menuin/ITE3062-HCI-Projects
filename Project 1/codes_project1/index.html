@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Myeongjo&family=Noto+Sans+KR&family=Roboto&family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+
+    <style></style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="fittext.js"></script>
+  </head>
+
+  <body>
+    <!-- Font resize by select -->
+    <div class="wrapper">
+      <div class="normal">
+        <div class="description">Editor #1</div>
+        <div class="menu">
+          <select id="font-select-normal">
+            <option value="">Select Font Size</option>
+            <option value="1">10px</option>
+            <option value="2">11px</option>
+            <option value="3">12px</option>
+            <option value="4">13px</option>
+            <option value="5">14px</option>
+            <option value="6">15px</option>
+            <option value="7">16px</option>
+            <option value="8">17px</option>
+            <option value="9">18px</option>
+            <option value="10">19px</option>
+            <option value="11">20px</option>
+            <option value="12">22px</option>
+            <option value="13">24px</option>
+            <option value="14">26px</option>
+            <option value="15">28px</option>
+            <option value="16">30px</option>
+            <option value="17">32px</option>
+            <option value="18">36px</option>
+            <option value="19">38px</option>
+            <option value="20">40px</option>
+            <option value="21">46px</option>
+            <option value="22">50px</option>
+            <option value="23">56px</option>
+            <option value="24">60px</option>
+          </select>
+          <select id="test-select-normal">
+            <option value="">Select Font Name</option>
+            <option value="Noto Sans KR">Noto Sans KR</option>
+            <option value="Nanum Gothic">Nanum Gothic</option>
+            <option value="Nanum Myeongjo">Nanum Myeongjo</option>
+            <option value="Roboto">Roboto</option>
+            <option value="Ubuntu">Ubuntu</option>
+          </select>
+        </div>
+        <div
+          id="ver1"
+          class="editor"
+          contenteditable="true"
+          style="height: 200px; position: relative"
+        ></div>
+        <div class="bottomMenu">
+          <button id="apply-normal">Apply</button>
+        </div>
+      </div>
+
+      <div class="filling"></div>
+      <!-- Font resize by resize -->
+
+      <div class="new">
+        <div class="description">Editor #2</div>
+        <div class="menu">
+          <div class="show-size hide">
+            Size:
+            <span id="fontsize"></span>
+          </div>
+
+          <select id="test-select">
+            <option value="">Select Font Name</option>
+            <option value="Noto Sans KR">Noto Sans KR</option>
+            <option value="Nanum Gothic">Nanum Gothic</option>
+            <option value="Nanum Myeongjo">Nanum Myeongjo</option>
+            <option value="Roboto">Roboto</option>
+            <option value="Ubuntu">Ubuntu</option>
+          </select>
+        </div>
+        <div
+          id="ver2"
+          class="editor"
+          contenteditable="true"
+          style="height: 200px; position: relative"
+        ></div>
+        <div class="bottomMenu">
+          <div class="checksame"></div>
+          <button id="apply">Apply</button>
+        </div>
+      </div>
+
+      <!-- <div class="scroll">
+      <div class="menu">
+        <div class="show-size hide">
+          Size:
+          <span id="fontsize"></span>
+        </div>
+        <select id="test-select">
+          <option value="">Select Font</option>
+          <option value="Noto Sans KR">Noto Sans KR</option>
+          <option value="Nanum Gothic">Nanum Gothic</option>
+          <option value="Nanum Myeongjo">Nanum Myeongjo</option>
+          <option value="Roboto">Roboto</option>
+          <option value="Ubuntu">Ubuntu</option>
+        </select>
+      </div>
+      <div
+        id="selection2"
+        class="editor"
+        contenteditable="true"
+        style="height: 200px; position: relative"
+      ></div>
+      <button id="apply">Apply</button>
+    </div> -->
+    </div>
+  </body>
+  <!-- <script type="text/javascript" src="./selectionEditor.js"></script> -->
+  <script type="text/javascript" src="./normalEditor.js"></script>
+  <script type="text/javascript" src="./testEditor.js"></script>
+  <script type="text/javascript" src="./scrollEditor.js"></script>
+</html>
